@@ -1,14 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'angular-signals-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  imports: [RouterOutlet, RouterLink],
+  selector: 'df-root',
+  template: `
+  <nav class="nav">
+    <a routerLink="/signals-store">Signals Store</a>
+    <a routerLink="/glitch-free">Glitch Free</a>
+  </nav>
+<router-outlet></router-outlet>`,
+styles: [`
+  .nav {
+    display: flex;
+    gap: 10px;
+  }
+`],
 })
 export class AppComponent {
-  title = 'main';
+  
 }
