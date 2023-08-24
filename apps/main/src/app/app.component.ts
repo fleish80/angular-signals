@@ -9,6 +9,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   <nav class="nav">
     <a routerLink="/signals-store">Signals Store</a>
     <a routerLink="/glitch-free">Glitch Free</a>
+    <a routerLink="/basic">Basic</a>
+    <a routerLink="/object-basic">Object Basic</a>  
   </nav>
 <router-outlet></router-outlet>`,
 styles: [`

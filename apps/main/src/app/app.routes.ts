@@ -14,4 +14,12 @@ export const appRoutes: Route[] = [
         path: 'glitch-free',
         loadComponent: () => import('./components/glitch-free.component')
       },
+      {
+        path: 'basic',
+        loadComponent: () => import('./components/basic.component')
+      },
+      {
+        path: 'object-basic',
+        loadComponent: () => import('./components/object-basic.component')
+      },
 ];
