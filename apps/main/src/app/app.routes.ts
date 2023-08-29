@@ -22,4 +22,8 @@ export const appRoutes: Route[] = [
         path: 'object-basic',
         loadComponent: () => import('./components/object-basic.component')
       },
+      {
+        path: 'cleanup-effect',
+        loadComponent: () => import('./components/cleanup-effect.component')
+      },
 ];
