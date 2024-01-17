@@ -1,10 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { computed, DestroyRef, inject, Injectable } from '@angular/core';
+import { DestroyRef, inject, Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { EMPTY } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Joke } from '../models/joke.model';
-import { equal } from '../utils/equal.util';
 import { JokeService } from './joke.service';
 import { SignalsStore } from './signals-store.service';
 import { selectSignal } from '../utils/select-signal.util';
@@ -36,7 +35,7 @@ export class JokeSignalsStoreService extends SignalsStore<State> {
   loading = selectSignal(() => this.state().loading);
   loaded = selectSignal(() => this.state());
 
-  async loadJoke() {
+  loadJoke() {
     this.patch({ loading: true });
     this.#jokeService
       .getJoke()
