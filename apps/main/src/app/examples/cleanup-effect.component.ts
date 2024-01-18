@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'df-cleanup-effect',
   standalone: true,
   imports: [CommonModule],
-  template: `<p>cleanup-effect works!</p>`,
+  template: `<p>Open the developer toolbar, navigate to the console tab, click on the ‘another route’ button, and observe the outcome</p>`,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -20,7 +20,7 @@ export default class CleanupEffectComponent {
         console.log(`1 second ago, the counter became ${this.counter()}`);
         this.counter.update(counter => counter + 1);
       }, 1000);
-    
+
       onCleanup(() => {
         clearInterval(interval);
       });

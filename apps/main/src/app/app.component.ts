@@ -1,26 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MatAnchor } from '@angular/material/button';
+import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, MatAnchor, RouterLinkActive, MatToolbar],
   selector: 'df-root',
   template: `
-  <nav class="nav">
-    <a routerLink="/signals-store">Signals Store</a>
-    <a routerLink="/glitch-free">Glitch Free</a>
-    <a routerLink="/basic">Basic</a>
-    <a routerLink="/object-basic">Object Basic</a>  
-    <a routerLink="/cleanup-effect">Cleanup Effect</a>  
-  </nav>
-<router-outlet></router-outlet>`,
-styles: [`
-  .nav {
-    display: flex;
-    gap: 10px;
-  }
-`],
+    <mat-toolbar color="primary">
+      <a routerLink="/state-management" routerLinkActive="active" mat-flat-button color="primary">State Management</a>
+      <a routerLink="/examples" routerLinkActive="active" mat-flat-button color="primary">Examples</a>
+    </mat-toolbar>
+    <router-outlet />
+  `,
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  
+
 }

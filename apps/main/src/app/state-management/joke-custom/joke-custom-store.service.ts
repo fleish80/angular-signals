@@ -3,10 +3,10 @@ import { DestroyRef, inject, Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { EMPTY } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { Joke } from '../models/joke.model';
-import { JokeService } from './joke.service';
 import { SignalsStore } from './signals-store.service';
-import { selectSignal } from '../utils/select-signal.util';
+import { JokeService } from '../joke.service';
+import { Joke } from '../joke.model';
+import { selectSignal } from '../select-signal.util';
 
 interface State {
   joke: Joke | null;
@@ -15,8 +15,8 @@ interface State {
   loaded: boolean;
 }
 
-@Injectable()
-export class JokeSignalsStoreService extends SignalsStore<State> {
+@Injectable({providedIn: 'root'})
+export class JokeCustomStoreService extends SignalsStore<State> {
   #jokeService = inject(JokeService);
   #destroyRef = inject(DestroyRef);
 
