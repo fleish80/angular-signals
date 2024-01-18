@@ -9,8 +9,9 @@ import { MatToolbar } from '@angular/material/toolbar';
   selector: 'df-root',
   template: `
     <mat-toolbar color="primary">
-      <a routerLink="/state-management" routerLinkActive="active" mat-flat-button color="primary">State Management</a>
       <a routerLink="/examples" routerLinkActive="active" mat-flat-button color="primary">Examples</a>
+      <a routerLink="/state-management" routerLinkActive="active" mat-flat-button color="primary">State Management</a>
+      <a routerLink="/glitch" routerLinkActive="active" mat-flat-button color="primary">Glitch Free</a>
     </mat-toolbar>
     <router-outlet />
   `,

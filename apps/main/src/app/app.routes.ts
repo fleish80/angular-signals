@@ -15,6 +15,11 @@ export const appRoutes: Route[] = [
     path: 'examples',
     loadChildren: () => import('./examples/examples.route').then(r => r.examplesRoute),
     loadComponent: () => import('./examples/examples.component')
+  },
+  {
+    path: 'glitch',
+    loadChildren: () => import('./glitch-free/glitch.route').then(r => r.glitchRoute),
+    loadComponent: () => import('./glitch-free/glitch.component')
   }
 
   // {
