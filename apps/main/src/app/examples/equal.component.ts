@@ -15,7 +15,6 @@ import { MatButton } from '@angular/material/button';
     <button (click)="plus1()" mat-raised-button color="primary">+ 1</button>
     <button (click)="plus2()" mat-raised-button color="primary">+ 2</button>
   `,
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class EqualComponent {

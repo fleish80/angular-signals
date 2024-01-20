@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, signal, untracked } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, signal, untracked } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 
 @Component({
@@ -9,28 +9,28 @@ import { MatButton } from '@angular/material/button';
   ],
   template: `
     <h2>Untracked may be scoped with the help of an arrow function</h2>
-    <div>Counter is {{ counter() }}</div>
-    <div>Double counter is {{ doubleCounter() }}</div>
-    <button (click)="set()" mat-raised-button color="primary">Set</button>
-    <button (click)="update()" mat-raised-button color="primary">Update</button>
+    <div>Counter 1 is {{ counter1() }}</div>
+    <div>Counter 2 is {{ counter2() }}</div>
+    <button (click)="counter1Plus1()" mat-raised-button color="primary">Counter1 +1</button>
+    <button (click)="counter2Plus1()" mat-raised-button color="primary">Counter2 +1</button>
   `,
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class UntrackedScopeComponent {
-  counter = signal(0);
-  doubleCounter = computed(() => this.counter() * 2);
+  counter1 = signal(0);
+  counter2 = signal(0);
+
 
   constructor() {
-    effect(() => console.log('counter = ', this.counter(), 'doubleCounter = ', untracked(() => this.doubleCounter())));
-    effect(() => console.log('doubleCounter = ', untracked(() => this.doubleCounter())));
+    effect(() => console.log('counter1 = ', this.counter1(), 'counter2 = ',
+      untracked(() => this.counter2())));
   }
 
-  set() {
-    this.counter.set(this.counter() + 1);
+  counter1Plus1() {
+    this.counter1.update(counter => counter + 1);
   }
 
-  update() {
-    this.counter.update(counter => counter + 1);
+  counter2Plus1() {
+    this.counter2.update(counter => counter + 1);
   }
 }

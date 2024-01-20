@@ -13,7 +13,6 @@ import { MatButton } from '@angular/material/button';
     <button (click)="set()" mat-raised-button color="primary">Set</button>
     <button (click)="update()" mat-raised-button color="primary">Update</button>
   `,
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class BasicComponent {

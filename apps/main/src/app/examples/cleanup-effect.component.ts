@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
   selector: 'df-cleanup-effect',
   standalone: true,
   imports: [CommonModule],
-  template: `<p>Open the developer toolbar, navigate to the console tab, click on the ‘another route’ button, and observe the outcome</p>`,
-  styles: [],
+  template: `<h2>Open the developer toolbar, navigate to the console tab, click on the ‘another route’ button, and
+    observe the outcome</h2>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CleanupEffectComponent {

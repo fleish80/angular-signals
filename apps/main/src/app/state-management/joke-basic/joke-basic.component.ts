@@ -4,7 +4,7 @@ import { JokeBasicStoreService } from './joke-basic-store.service';
 import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'df-joke-rxjs',
+  selector: 'df-joke-basic',
   standalone: true,
   imports: [CommonModule, MatButton],
   template: `

@@ -4,7 +4,7 @@ import { MatButton } from '@angular/material/button';
 import { JokeCustomStoreService } from './joke-custom-store.service';
 
 @Component({
-  selector: 'df-joke-rxjs',
+  selector: 'df-joke-custom',
   standalone: true,
   imports: [CommonModule, MatButton],
   template: `
@@ -17,7 +17,7 @@ import { JokeCustomStoreService } from './joke-custom-store.service';
   `,
   styles: []
 })
-export default class JokeBasicComponent {
+export default class JokeCustomComponent {
   #jokeCustomStoreService = inject(JokeCustomStoreService);
   joke = this.#jokeCustomStoreService.joke;
   loading = this.#jokeCustomStoreService.loading;
