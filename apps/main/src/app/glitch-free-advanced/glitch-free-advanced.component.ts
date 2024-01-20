@@ -4,7 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'df-glitch',
+  selector: 'df-glitch-free-advanced',
   standalone: true,
   imports: [
     MatButtonModule,
@@ -22,7 +22,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     <router-outlet />
 
   `,
-  styleUrl: './glitch.component.scss'
+  styleUrl: './glitch-free-advanced.component.scss'
 })
-export default class GlitchComponent {
+export default class GlitchFreeAdvancedComponent {
 }

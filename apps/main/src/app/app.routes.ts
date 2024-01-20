@@ -3,7 +3,7 @@ import { Route } from '@angular/router';
 export const appRoutes: Route[] = [
   {
     path: '',
-    redirectTo: 'signals-store',
+    redirectTo: 'examples',
     pathMatch: 'full'
   },
   {
@@ -20,26 +20,10 @@ export const appRoutes: Route[] = [
     path: 'glitch',
     loadChildren: () => import('./glitch-free/glitch.route').then(r => r.glitchRoute),
     loadComponent: () => import('./glitch-free/glitch.component')
+  },
+  {
+    path: 'glitch-free-advanced',
+    loadChildren: () => import('./glitch-free-advanced/glitch-free-advanced.route').then(r => r.glitchFreeAdvancedRoute),
+    loadComponent: () => import('./glitch-free-advanced/glitch-free-advanced.component')
   }
-
-  // {
-  //   path: 'signals-store',
-  //   loadComponent: () => import('./components/joke-signals.component')
-  // },
-  // {
-  //   path: 'glitch-free',
-  //   loadComponent: () => import('./components/glitch-free.component')
-  // },
-  // {
-  //   path: 'basic',
-  //   loadComponent: () => import('./components/basic.component')
-  // },
-  // {
-  //   path: 'object-basic',
-  //   loadComponent: () => import('./components/object-basic.component')
-  // },
-  // {
-  //   path: 'cleanup-effect',
-  //   loadComponent: () => import('./components/cleanup-effect.component')
-  // },
 ];
