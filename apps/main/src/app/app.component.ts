@@ -10,9 +10,9 @@ import { MatToolbar } from '@angular/material/toolbar';
   template: `
     <mat-toolbar color="primary">
       <a routerLink="/examples" routerLinkActive="active" mat-flat-button color="primary">Examples</a>
-      <a routerLink="/state-management" routerLinkActive="active" mat-flat-button color="primary">State Management</a>
       <a routerLink="/glitch" routerLinkActive="active" mat-flat-button color="primary">Glitch Free</a>
       <a routerLink="/glitch-free-advanced" routerLinkActive="active" mat-flat-button color="primary">Signals make Angular MUCH easier</a>
+      <a routerLink="/state-management" routerLinkActive="active" mat-flat-button color="primary">State Management</a>
     </mat-toolbar>
     <router-outlet />
   `,
