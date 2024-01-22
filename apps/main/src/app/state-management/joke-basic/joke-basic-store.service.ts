@@ -5,7 +5,7 @@ import { EMPTY } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { JokeService } from '../joke.service';
 import { Joke } from '../joke.model';
-import { equal } from '../equal.util';
+import { equal } from '../../equal.util';
 
 interface State {
   joke: Joke | null;

@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { JokeBasicStoreService } from './joke-basic-store.service';
 import { MatButton } from '@angular/material/button';
+import { JokeSignalStore } from './joke-signal-store.service';
 
 @Component({
-  selector: 'df-joke-basic',
+  selector: 'df-joke-signals-store',
   standalone: true,
   imports: [CommonModule, MatButton],
   template: `
@@ -18,13 +18,13 @@ import { MatButton } from '@angular/material/button';
   `,
   styles: []
 })
-export default class JokeBasicComponent {
-  #jokeBasicStoreService = inject(JokeBasicStoreService);
-  joke = this.#jokeBasicStoreService.joke;
-  loading = this.#jokeBasicStoreService.loading;
-  error = this.#jokeBasicStoreService.error;
+export default class JokeSignalStoreComponent {
+  #jokeSignalStore = inject(JokeSignalStore);
+  joke = this.#jokeSignalStore.joke;
+  loading = this.#jokeSignalStore.loading;
+  error = this.#jokeSignalStore.error;
 
   loadAnotherJoke() {
-    this.#jokeBasicStoreService.loadJoke();
+    this.#jokeSignalStore.load();
   }
 }

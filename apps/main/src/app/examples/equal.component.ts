@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, effect, signal } from '@angular/core';
-import { equal } from '../state-management/equal.util';
+import { equal } from '../equal.util';
 import { MatButton } from '@angular/material/button';
 
 @Component({

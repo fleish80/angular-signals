@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Joke } from '../joke.model';
 import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from '@ngrx/signals';
-import { selectSignal } from '../select-signal.util';
+import { selectSignal } from '../../select-signal.util';
 import { inject } from '@angular/core';
 import { JokeService } from '../joke.service';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
@@ -36,14 +36,14 @@ export const JokeSignalStore = signalStore({ providedIn: 'root' },
             patchState(store, {
               joke,
               error: null,
-              loading: true,
+              loading: false,
               loaded: true
             }),
           error: (error: HttpErrorResponse) =>
             patchState(store, {
               joke: null,
               error,
-              loading: true,
+              loading: false,
               loaded: true
             })
         }))

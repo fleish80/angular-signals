@@ -8,11 +8,12 @@ import { JokeCustomStoreService } from './joke-custom-store.service';
   standalone: true,
   imports: [CommonModule, MatButton],
   template: `
-    <p *ngIf="this.loading(); else jokeTemplate">Loading...</p>
-    <ng-template #jokeTemplate>
+    @if (this.loading()) {
+      <p>Loading...</p>
+    } @else {
       <p *ngIf="!this.error()">{{ this.joke()!.value }}</p>
       <p *ngIf="this.error()">{{ this.error()!.message }}</p>
-    </ng-template>
+    }
     <button (click)="loadAnotherJoke()" mat-raised-button color="primary">Load Another Joke</button>
   `,
   styles: []

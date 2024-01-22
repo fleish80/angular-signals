@@ -8,7 +8,7 @@ import { MatButton } from '@angular/material/button';
     MatButton
   ],
   template: `
-    <h2>Untracked may be scoped with the help of an arrow function</h2>
+    <h2>Untracked may be scoped with help of an arrow function</h2>
     <div>Counter 1 is {{ counter1() }}</div>
     <div>Counter 2 is {{ counter2() }}</div>
     <button (click)="counter1Plus1()" mat-raised-button color="primary">Counter1 +1</button>

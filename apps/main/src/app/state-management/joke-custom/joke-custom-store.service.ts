@@ -6,7 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { SignalsStore } from './signals-store.service';
 import { JokeService } from '../joke.service';
 import { Joke } from '../joke.model';
-import { selectSignal } from '../select-signal.util';
+import { selectSignal } from '../../select-signal.util';
 
 interface State {
   joke: Joke | null;
