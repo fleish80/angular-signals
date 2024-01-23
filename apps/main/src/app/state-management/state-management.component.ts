@@ -15,9 +15,10 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   ],
   template: `
     <mat-toolbar color="warn">
-      <a routerLink="basic" routerLinkActive="active" mat-flat-button color="warn">Basic</a>
-      <a routerLink="custom" routerLinkActive="active" mat-flat-button color="warn">Custom Infrastructure</a>
-      <a routerLink="signals-store" routerLinkActive="active" mat-flat-button color="warn">Signals Store</a>
+      <a routerLink="basic" routerLinkActive="active" mat-flat-button color="warn">Joke - Basic</a>
+      <a routerLink="custom" routerLinkActive="active" mat-flat-button color="warn">Joke - Custom Infrastructure</a>
+      <a routerLink="signals-store" routerLinkActive="active" mat-flat-button color="warn">Joke - Signals Store</a>
+      <a routerLink="countries" routerLinkActive="active" mat-flat-button color="warn">Countries - Signals Store With Parameter</a>
 
     </mat-toolbar>
     <router-outlet />
