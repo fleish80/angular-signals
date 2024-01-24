@@ -6,4 +6,5 @@ export const stateManagementRoute: Route[] = [
   { path: 'custom', loadComponent: () => import('./joke-custom/joke-custom.component') },
   { path: 'signals-store', loadComponent: () => import('./joke-signals-store/joke-signal-store.component') },
   { path: 'countries', loadComponent: () => import('./countries/countries.component') },
+  { path: 'signals-store-feature', loadComponent: () => import('./joke-signal-store-feature/joke-signal-store-feature.component') },
 ]
