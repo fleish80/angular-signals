@@ -26,15 +26,15 @@ export const JokeSignalFeatureStore = signalStore({ providedIn: 'root' },
     load: rxMethod<void>(
       pipe(
         tap(() => patchState(store, setLoading())),
-        switchMap(() => jokeService.getJoke()),
-        tapResponse(({
-          next: (joke) => {
-            patchState(store, { joke }, setLoaded());
-          },
-          error: (error: HttpErrorResponse) =>
-            patchState(store, { joke: null }, setError(error))
-        }))
-      ))
+        switchMap(() => jokeService.getJoke().pipe(
+          tapResponse(({
+            next: (joke) => {
+              patchState(store, { joke }, setLoaded());
+            },
+            error: (error: HttpErrorResponse) =>
+              patchState(store, { joke: null }, setError(error))
+          })))
+        )))
   })),
   withHooks({
     onInit({ load }) {

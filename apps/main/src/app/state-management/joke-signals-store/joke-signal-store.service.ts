@@ -24,30 +24,30 @@ export const JokeSignalStore = signalStore({ providedIn: 'root' },
     loaded: false
   }),
   withComputed((store) => ({
-    initLetters: selectSignal(() => store.joke()?.value.split(' ').map(word => word[0])),
+    initLetters: selectSignal(() => store.joke()?.value.split(' ').map(word => word[0]))
   })),
   withMethods((store, jokeService = inject(JokeService)) => ({
     load: rxMethod<void>(
       pipe(
         tap(() => patchState(store, { loading: true })),
-        switchMap(() => jokeService.getJoke()),
-        tapResponse(({
-          next: (joke) =>
-            patchState(store, {
-              joke,
-              error: null,
-              loading: false,
-              loaded: true
-            }),
-          error: (error: HttpErrorResponse) =>
-            patchState(store, {
-              joke: null,
-              error,
-              loading: false,
-              loaded: true
-            })
-        }))
-      ))
+        switchMap(() => jokeService.getJoke().pipe(
+          tapResponse(({
+            next: (joke) =>
+              patchState(store, {
+                joke,
+                error: null,
+                loading: false,
+                loaded: true
+              }),
+            error: (error: HttpErrorResponse) =>
+              patchState(store, {
+                joke: null,
+                error,
+                loading: false,
+                loaded: true
+              })
+          })))
+        )))
   })),
   withHooks({
     onInit({ load }) {
