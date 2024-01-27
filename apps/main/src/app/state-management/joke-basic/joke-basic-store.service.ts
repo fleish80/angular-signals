@@ -5,7 +5,6 @@ import { EMPTY } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { JokeService } from '../joke.service';
 import { Joke } from '../joke.model';
-import { equal } from '../../equal.util';
 
 interface State {
   joke: Joke | null;
@@ -29,10 +28,10 @@ export class JokeBasicStoreService  {
     this.loadJoke();
   }
 
-  joke = computed(() => this.#state().joke, {equal});
-  error = computed(() => this.#state().error, {equal});
-  loading = computed(() => this.#state().loading, {equal});
-  loaded = computed(() => this.#state(), {equal});
+  joke = computed(() => this.#state().joke);
+  error = computed(() => this.#state().error);
+  loading = computed(() => this.#state().loading);
+  loaded = computed(() => this.#state().loaded);
 
   #patch(partialState: Partial<State>) {
     this.#state.update((state) => ({

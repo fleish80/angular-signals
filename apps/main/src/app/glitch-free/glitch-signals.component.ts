@@ -8,6 +8,8 @@ import { MatButton } from '@angular/material/button';
   template: `
     <h2>Open dev toolbar, and see the behaviour of combining signal</h2>
     <button (click)="update()" mat-raised-button color="primary">Update</button>
+    <div>Counter is {{ counter() }}</div>
+    <div>Is Even is {{ isEven() }}</div>
   `,
 })
 export default class GlitchSignalsComponent {

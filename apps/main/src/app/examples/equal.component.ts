@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, computed, effect, signal } from '@angular/core';
-import { equal } from '../equal.util';
 import { MatButton } from '@angular/material/button';
 
 @Component({
@@ -19,7 +18,7 @@ import { MatButton } from '@angular/material/button';
 })
 export default class EqualComponent {
   counter = signal(0);
-  isEven = computed(() => this.counter() % 2 === 0, {equal});
+  isEven = computed(() => this.counter() % 2 === 0);
 
   constructor() {
     effect(() => console.log('isEven = ', this.isEven()));
