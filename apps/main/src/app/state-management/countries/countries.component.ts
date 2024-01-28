@@ -1,4 +1,4 @@
-import { JsonPipe } from '@angular/common';
+import { JsonPipe, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,24 +11,18 @@ import { CountriesControlsService } from './countries-controls.service';
 @Component({
   selector: 'df-countries',
   standalone: true,
-  imports: [MatFormFieldModule, JsonPipe, MatInputModule, ReactiveFormsModule, CountriesTableComponent, MatProgressSpinnerModule],
+  imports: [MatFormFieldModule, JsonPipe, MatInputModule, ReactiveFormsModule, CountriesTableComponent, MatProgressSpinnerModule, NgIf],
   template: `
     <mat-form-field appearance="outline">
       <mat-label>Countries</mat-label>
       <input matInput [formControl]="nameCtrl">
     </mat-form-field>
 
-    @if (loaded()) {
-      @if (loading()) {
-        <mat-spinner />
-      } @else if (error()) {
-        <span>{{ error()!.message }}</span>
-      } @else {
-        <df-countries-table [countries]="countries()" />
-      }
-    }
+    <mat-spinner *ngIf="loaded()"/>
+    <span *ngIf="error()">{{ error()!.message }}</span>
+    <df-countries-table *ngIf="!loaded() && !error()"[countries]="countries()" />
   `,
-  styles: `
+  styles: [`
     :host {
         padding-block-start: 50px;
         display: flex;
@@ -37,7 +31,7 @@ import { CountriesControlsService } from './countries-controls.service';
         padding-inline: 10px;
       }
 
-  `,
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CountriesComponent {

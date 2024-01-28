@@ -25,7 +25,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     <router-outlet />
 
   `,
-  styleUrl: './state-management.component.scss'
+  styleUrls: ['./state-management.component.scss']
 })
 export default class StateManagementComponent {
 }

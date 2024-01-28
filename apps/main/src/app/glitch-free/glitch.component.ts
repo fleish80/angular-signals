@@ -22,7 +22,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     <router-outlet />
 
   `,
-  styleUrl: './glitch.component.scss'
+  styleUrls: ['./glitch.component.scss']
 })
 export default class GlitchComponent {
 }

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { MatAnchor } from '@angular/material/button';
-import { MatToolbar } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   standalone: true,
-  imports: [RouterOutlet, RouterLink, MatAnchor, RouterLinkActive, MatToolbar],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, MatToolbarModule, MatButtonModule],
   selector: 'df-root',
   template: `
     <mat-toolbar color="primary">
@@ -16,7 +16,7 @@ import { MatToolbar } from '@angular/material/toolbar';
     </mat-toolbar>
     <router-outlet />
   `,
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -15,8 +15,8 @@ import { AsyncPipe } from '@angular/common';
     <div>Is Even is {{ isEven$ | async }}</div>
   `,
   imports: [
-    MatButton,
-    AsyncPipe
+    AsyncPipe,
+    MatButtonModule
   ]
 })
 export default class GlitchRxjsComponent {

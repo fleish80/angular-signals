@@ -1,13 +1,19 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Joke } from '../joke.model';
-import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from '@ngrx/signals';
 import { computed, inject } from '@angular/core';
 import { JokeService } from '../joke.service';
-import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { pipe, switchMap } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { tapResponse } from '@ngrx/operators';
 import { setError, setLoaded, setLoading, withCallState } from './call-state.feature';
+import {
+  patchState,
+  rxMethod,
+  signalStore,
+  withComputed, withHooks,
+  withMethods,
+  withState
+} from '@angular-signals/signals-store';
 
 type State = {
   joke: Joke | null;

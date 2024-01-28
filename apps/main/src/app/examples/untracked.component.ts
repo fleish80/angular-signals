@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, effect, signal, untracked } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'df-untracked',
   standalone: true,
   imports: [
-    MatButton
+    MatButtonModule
   ],
   template: `
     <h2>Open the dev toolbar and pay attention to the fact that the counter 1 is triggered inside the effect, but

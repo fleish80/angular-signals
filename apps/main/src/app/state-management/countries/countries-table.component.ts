@@ -1,4 +1,4 @@
-import { DecimalPipe, NgOptimizedImage } from '@angular/common';
+import { DecimalPipe, NgIf, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
@@ -7,7 +7,7 @@ import { Country } from './country.model';
 @Component({
   selector: 'df-countries-table',
   standalone: true,
-  imports: [MatTableModule, DecimalPipe, NgOptimizedImage, MatIconModule],
+  imports: [MatTableModule, DecimalPipe, NgOptimizedImage, MatIconModule, NgIf],
   template: `
     <table mat-table [dataSource]="countries" class="mat-elevation-z8">
       <ng-container matColumnDef="name">
@@ -45,36 +45,29 @@ import { Country } from './country.model';
       <ng-container matColumnDef="coatOfArms">
         <th mat-header-cell *matHeaderCellDef>Symbol</th>
         <td mat-cell *matCellDef="let element">
-          @if (element.coatOfArms.svg) {
-            <img [ngSrc]="element.coatOfArms.svg" width="60" height="29" alt=""/>
-          }
+            <img *ngIf="element.coatOfArms.svg" [ngSrc]="element.coatOfArms.svg" width="60" height="29" alt=""/>
         </td>
       </ng-container>
       <ng-container matColumnDef="independent">
         <th mat-header-cell *matHeaderCellDef>Independent</th>
         <td mat-cell *matCellDef="let element">
-          @if (element.independent) {
-            <mat-icon class="yes">done</mat-icon>
-          } @else {
-            <mat-icon class="no">close</mat-icon>
+            <mat-icon *ngIf="element.independent" class="yes">done</mat-icon>
+            <mat-icon *ngIf="!element.independent" class="no">close</mat-icon>
           }
         </td>
       </ng-container>
       <ng-container matColumnDef="unMember">
         <th mat-header-cell *matHeaderCellDef>UN Member</th>
         <td mat-cell *matCellDef="let element">
-          @if (element.unMember) {
-            <mat-icon class="yes">done</mat-icon>
-          } @else {
-            <mat-icon class="no">close</mat-icon>
-          }
+            <mat-icon *ngIf="element.unMember" class="yes">done</mat-icon>
+            <mat-icon *ngIf="!element.unMember" class="no">close</mat-icon>
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   `,
-  styles: `
+  styles: [`
 
     :host {
       display: flex;
@@ -88,7 +81,7 @@ import { Country } from './country.model';
     .no {
       color: red;
      }
-  `,
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountriesTableComponent {

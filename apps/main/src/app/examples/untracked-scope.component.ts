@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, effect, signal, untracked } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'df-untracked-scope',
   standalone: true,
   imports: [
-    MatButton
+    MatButtonModule
   ],
   template: `
     <h2>Untracked may be scoped with help of an arrow function</h2>

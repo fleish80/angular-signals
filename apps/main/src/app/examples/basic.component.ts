@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, effect, signal } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'df-basic',
   standalone: true,
   imports: [
-    MatButton
+    MatButtonModule
   ],
   template: `
     <div>Counter is {{ counter() }}</div>

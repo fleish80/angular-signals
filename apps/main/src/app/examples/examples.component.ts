@@ -24,7 +24,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     <router-outlet />
 
   `,
-  styleUrl: './examples.component.scss'
+  styleUrls: ['./examples.component.scss']
 })
 export default class ExamplesComponent {
 }

@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { GlitchFreeAdvancedRxjsService } from './glitch-free-advanced-rxjs.service';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'df-glitch-free-advanced-rxjs',
   standalone: true,
   imports: [
-    MatButton,
-    AsyncPipe
+    AsyncPipe,
+    MatButtonModule
   ],
   template: `
   <button (click)="increment()" mat-raised-button color="primary">+</button>
@@ -18,12 +18,12 @@ import { MatButton } from '@angular/material/button';
   <div>Combined: {{combined$ | async}}</div>
   <div>Message: {{message$ | async}}</div>
   `,
-  styles: `
+  styles: [`
     :host {
       display: flex;
       flex-direction: column;
     }
-  `,
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GlitchFreeAdvancedRxjsComponent {

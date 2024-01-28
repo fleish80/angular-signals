@@ -1,19 +1,18 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JokeBasicStoreService } from './joke-basic-store.service';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'df-joke-basic',
   standalone: true,
-  imports: [CommonModule, MatButton],
+  imports: [CommonModule, MatButtonModule],
   template: `
-    @if (this.loading()) {
-      <p>Loading...</p>
-    } @else {
+    <p *ngIf="this.loading(); else jokeTemplate">Loading...</p>
+    <ng-template #jokeTemplate>
       <p *ngIf="!this.error()">{{ this.joke()!.value }}</p>
       <p *ngIf="this.error()">{{ this.error()!.message }}</p>
-    }
+    </ng-template>
     <button (click)="loadAnotherJoke()" mat-raised-button color="primary">Load Another Joke</button>
   `,
   styles: []

@@ -1,10 +1,7 @@
 import { computed } from '@angular/core';
-import {
-  signalStoreFeature,
-  withComputed,
-  withState,
-} from '@ngrx/signals';
+
 import { HttpErrorResponse } from '@angular/common/http';
+import { signalStoreFeature, withComputed, withState } from '@angular-signals/signals-store';
 
 export type CallState = 'init' | 'loading' | 'loaded' | { error: HttpErrorResponse };
 

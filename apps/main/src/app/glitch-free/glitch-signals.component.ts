@@ -1,10 +1,12 @@
 import { Component, computed, effect, signal } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'df-glitch-signals',
   standalone: true,
-  imports: [MatButton],
+  imports: [
+    MatButtonModule
+  ],
   template: `
     <h2>Open dev toolbar, and see the behaviour of combining signal</h2>
     <button (click)="update()" mat-raised-button color="primary">Update</button>

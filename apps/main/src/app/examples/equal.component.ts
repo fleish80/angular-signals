@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, effect, signal } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'df-equal',
   standalone: true,
   imports: [
-    MatButton
+    MatButtonModule
   ],
   template: `
     <h2>Pay attention to the fact that isEvent is only triggered when its value is changed.</h2>
