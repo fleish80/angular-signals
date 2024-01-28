@@ -18,9 +18,11 @@ import { CountriesControlsService } from './countries-controls.service';
       <input matInput [formControl]="nameCtrl">
     </mat-form-field>
 
-    <mat-spinner *ngIf="loaded()"/>
-    <span *ngIf="error()">{{ error()!.message }}</span>
-    <df-countries-table *ngIf="!loaded() && !error()"[countries]="countries()" />
+    <mat-spinner *ngIf="loading()" />
+    <ng-container *ngIf="loaded()">
+      <span *ngIf="error()">{{ error()!.message }}</span>
+      <df-countries-table *ngIf="!error()" [countries]="countries()" />
+    </ng-container>
   `,
   styles: [`
     :host {
