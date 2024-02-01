@@ -1,5 +1,5 @@
 import { Component, computed, effect, signal } from '@angular/core';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'df-glitch-signals',
