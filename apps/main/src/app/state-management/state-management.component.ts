@@ -20,6 +20,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
       <a routerLink="signals-store" routerLinkActive="active" mat-flat-button color="warn">Joke - Signals Store</a>
       <a routerLink="countries" routerLinkActive="active" mat-flat-button color="warn">Countries - Signals Store With Parameter</a>
       <a routerLink="signals-store-feature" routerLinkActive="active" mat-flat-button color="warn">Joke - Signals Store With Feature</a>
+      <a routerLink="todos" routerLinkActive="active" mat-flat-button color="warn">Todos - entities</a>
 
     </mat-toolbar>
     <router-outlet />
