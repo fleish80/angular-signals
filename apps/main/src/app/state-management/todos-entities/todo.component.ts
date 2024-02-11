@@ -10,7 +10,7 @@ import { TodoStore } from './todo.store';
     JsonPipe,
     TodoTableComponent
   ],
-  template: `<pre>{{ todoEntities()[1] | json }}</pre>`,
+  template: `<df-todo-table/>`,
   providers: [TodoStore]
 })
 export default class TodoComponent {

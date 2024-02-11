@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Injector } from '@angular/core';
 import {
   MatCell,
   MatCellDef,
@@ -10,6 +10,9 @@ import {
 } from '@angular/material/table';
 import { MatIcon } from '@angular/material/icon';
 import { TodoStore } from './todo.store';
+import { MatDialog } from '@angular/material/dialog';
+import { TodoEditComponent } from './todo-edit.component';
+import { MatIconButton } from '@angular/material/button';
 
 @Component({
   selector: 'df-todo-table',
@@ -43,6 +46,15 @@ import { TodoStore } from './todo.store';
         </td>
       </ng-container>
 
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="openDialog(row.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
@@ -64,14 +76,22 @@ import { TodoStore } from './todo.store';
     }
   `,
   standalone: true,
-  imports: [MatTable, MatColumnDef, MatHeaderCell, MatCell, MatHeaderCellDef, MatCellDef, MatHeaderRow, MatHeaderRowDef, MatRowDef, MatRow, MatIcon]
+  imports: [MatTable, MatColumnDef, MatHeaderCell, MatCell, MatHeaderCellDef, MatCellDef, MatHeaderRow, MatHeaderRowDef, MatRowDef, MatRow, MatIcon, MatIconButton]
 })
 export class TodoTableComponent {
   #todoStore = inject(TodoStore);
+  #dialog = inject(MatDialog);
+  #injector = inject(Injector);
   todoEntities = this.#todoStore.todoEntities;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'userId', 'title', 'completed'];
+  displayedColumns = ['id', 'userId', 'title', 'completed', 'actions'];
+
+  openDialog(todoId: number): void {
+    this.#dialog.open(TodoEditComponent, {
+      data: {todoId, injector: this.#injector},
+    });
+  }
 
 
 }
