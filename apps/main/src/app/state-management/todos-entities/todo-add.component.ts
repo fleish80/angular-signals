@@ -16,7 +16,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
 import { Todo } from './todo.model';
 
 @Component({
-  selector: 'df-todo-edit',
+  selector: 'df-todo-add',
   standalone: true,
   imports: [
     MatDialogTitle,
