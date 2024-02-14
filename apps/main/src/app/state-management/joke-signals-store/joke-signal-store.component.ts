@@ -11,7 +11,7 @@ import { JokeSignalStore } from './joke-signal-store.service';
     @if (this.loading()) {
       <p>Loading...</p>
     } @else {
-      <p *ngIf="!this.error()">{{ this.joke()!.value }}</p>
+      <p *ngIf="!this.error()">{{ this.joke.value() }}</p>
       <p *ngIf="this.error()">{{ this.error()!.message }}</p>
     }
     <button (click)="loadAnotherJoke()" mat-raised-button color="primary">Load Another Joke</button>

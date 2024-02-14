@@ -8,7 +8,7 @@ import { tapResponse } from '@ngrx/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TodosService } from './todos.service';
 import { setError, setLoaded, setLoading, withCallState } from '../joke-signal-store-feature/call-state.feature';
-import { setAllEntities, updateEntity, withEntities } from '@ngrx/signals/entities';
+import { addEntity, setAllEntities, updateEntity, withEntities } from '@ngrx/signals/entities';
 
 export const TodoStore = signalStore(
   withEntities({ entity: type<Todo>(), collection: 'todo' }),
@@ -26,6 +26,9 @@ export const TodoStore = signalStore(
           }))))),
     updateTodo: (todo: Todo) => {
       patchState(store, updateEntity({id: todo.id, changes: todo}, {collection: 'todo'}) );
+    },
+    addTodo: (todo: Todo) => {
+      patchState(store, addEntity(todo, {collection: 'todo'}) );
     }
   })),
   withHooks({

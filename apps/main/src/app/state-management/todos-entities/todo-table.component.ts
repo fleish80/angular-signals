@@ -12,11 +12,15 @@ import { MatIcon } from '@angular/material/icon';
 import { TodoStore } from './todo.store';
 import { MatDialog } from '@angular/material/dialog';
 import { TodoEditComponent } from './todo-edit.component';
-import { MatIconButton } from '@angular/material/button';
+import { MatButton, MatFabButton, MatIconButton } from '@angular/material/button';
+import { TodoAddComponent } from './todo-add.component';
 
 @Component({
   selector: 'df-todo-table',
   template: `
+    <button mat-fab color="primary" (click)="add()">
+      <mat-icon>add</mat-icon>
+    </button>
     <table mat-table [dataSource]="todoEntities()" class="mat-elevation-z8">
       <!-- Id Column -->
       <ng-container matColumnDef="id">
@@ -65,6 +69,7 @@ import { MatIconButton } from '@angular/material/button';
     :host {
       display: flex;
       width: 100%;
+      flex-direction: column;
     }
 
     .yes {
@@ -76,7 +81,7 @@ import { MatIconButton } from '@angular/material/button';
     }
   `,
   standalone: true,
-  imports: [MatTable, MatColumnDef, MatHeaderCell, MatCell, MatHeaderCellDef, MatCellDef, MatHeaderRow, MatHeaderRowDef, MatRowDef, MatRow, MatIcon, MatIconButton]
+  imports: [MatTable, MatColumnDef, MatHeaderCell, MatCell, MatHeaderCellDef, MatCellDef, MatHeaderRow, MatHeaderRowDef, MatRowDef, MatRow, MatIcon, MatIconButton, MatButton, MatFabButton]
 })
 export class TodoTableComponent {
   #todoStore = inject(TodoStore);
@@ -94,4 +99,9 @@ export class TodoTableComponent {
   }
 
 
+  add() {
+    this.#dialog.open(TodoAddComponent, {
+      data: {injector: this.#injector},
+    });
+  }
 }

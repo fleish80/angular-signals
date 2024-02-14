@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 import { tapResponse } from '@ngrx/operators';
 
 type State = {
-  joke: Joke | null;
+  joke: Joke;
   error: HttpErrorResponse | null;
   loading: boolean;
   loaded: boolean;
@@ -17,7 +17,7 @@ type State = {
 
 export const JokeSignalStore = signalStore({ providedIn: 'root' },
   withState<State>({
-    joke: null,
+    joke: {value: ''},
     error: null,
     loading: false,
     loaded: false
@@ -40,7 +40,7 @@ export const JokeSignalStore = signalStore({ providedIn: 'root' },
               }),
             error: (error: HttpErrorResponse) =>
               patchState(store, {
-                joke: null,
+                joke: {value: ''},
                 error,
                 loading: false,
                 loaded: true
