@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+router-outlet {
+  ::ng-deep + * {
+    margin: 20px;
+  }
+}
+
+.active {
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: underline;
+
+}
+
