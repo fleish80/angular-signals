@@ -31,7 +31,7 @@ import { Todo } from './todo.model';
     MatLabel
   ],
   template: `
-    <h2 mat-dialog-title>Edit Todo</h2>
+    <h2 mat-dialog-title>Add Todo</h2>
     <form [formGroup]="form" class="form" (ngSubmit)="submit()">
       <mat-dialog-content class="mat-typography" [formGroup]="form">
         <input type="hidden" formControlName="id">

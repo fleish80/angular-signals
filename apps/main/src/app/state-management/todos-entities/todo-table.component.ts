@@ -14,6 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TodoEditComponent } from './todo-edit.component';
 import { MatButton, MatFabButton, MatIconButton } from '@angular/material/button';
 import { TodoAddComponent } from './todo-add.component';
+import { TodoRemoveComponent } from './todo-remove.component';
 
 @Component({
   selector: 'df-todo-table',
@@ -53,8 +54,11 @@ import { TodoAddComponent } from './todo-add.component';
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button (click)="openDialog(row.id)">
+          <button mat-icon-button (click)="edit(row.id)">
             <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="remove(row.id)">
+            <mat-icon>remove</mat-icon>
           </button>
         </td>
       </ng-container>
@@ -92,16 +96,22 @@ export class TodoTableComponent {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'userId', 'title', 'completed', 'actions'];
 
-  openDialog(todoId: number): void {
+  edit(todoId: number): void {
     this.#dialog.open(TodoEditComponent, {
-      data: {todoId, injector: this.#injector},
+      data: { todoId, injector: this.#injector }
     });
   }
 
 
   add() {
     this.#dialog.open(TodoAddComponent, {
-      data: {injector: this.#injector},
+      data: { injector: this.#injector }
+    });
+  }
+
+  remove(todoId: number) {
+    this.#dialog.open(TodoRemoveComponent, {
+      data: { todoId, injector: this.#injector }
     });
   }
 }
